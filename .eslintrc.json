@@ -1,0 +1,454 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "reportUnusedDisableDirectives": true,
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "prettier",
+    "import",
+    "jsx-a11y",
+    "filenames",
+    "deprecate",
+    "json",
+    "no-loops",
+    "unicorn",
+    "markdown",
+    "promise"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:json/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:markdown/recommended",
+    "plugin:promise/recommended"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React", // Pragma to use, default to "React"
+      "version": "detect" // React version. "detect" automatically picks the version you have installed.
+      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+      // It will default to "latest" and warn if missing, and to "detect" in the future
+      // "flowVersion": "0.53" // Flow version
+    },
+    "prettier/prettier": [
+      2,
+      {
+        "printWidth": 100,
+        "parser": "typescript",
+        "semi": true,
+        "singleQuote": true,
+        "jsxSingleQuote": true,
+        "endOfLine": "auto",
+        "bracketSameLine": true,
+        "trailingComma": "es5",
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "requirePragma": true,
+        "insertPragma": true,
+        "proseWrap": "always"
+      }
+    ],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "import/extensions": [".ts", "tsx"],
+    "import/ignore": [".*\\.d.ts$"]
+  },
+  "rules": {
+    // ESLint
+    "max-len": [2, { "code": 100, "ignoreRegExpLiterals": true }],
+    "no-console": [2, { "allow": ["warn", "error"] }],
+    "no-debugger": 1,
+    "no-alert": 2,
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [2],
+    "no-empty-function": 0,
+    "@typescript-eslint/no-empty-function": [2, { "allow": ["arrowFunctions"] }],
+    "@typescript-eslint/no-empty-interface": [
+      2,
+      {
+        "allowSingleExtends": false
+      }
+    ],
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "no-restricted-imports": [
+      2,
+      {
+        "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
+      }
+    ],
+    "no-irregular-whitespace": [2, { "skipTemplates": true }],
+    "linebreak-style": [2, "unix"],
+    // React Plugin
+    "react/button-has-type": [2, { "button": true, "submit": true, "reset": true }],
+    "react/destructuring-assignment": [2, "always", { "ignoreClassFields": true }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/hook-use-state": [0],
+    "react/no-access-state-in-setstate": [2],
+    "react/no-adjacent-inline-elements": [2],
+    "react/no-array-index-key": [1],
+    "react/no-arrow-function-lifecycle": [2],
+    "react/no-children-prop": [2, { "allowFunctions": true }],
+    "react/no-danger": [2],
+    "react/no-danger-with-children": [2],
+    "react/no-deprecated": [2],
+    "react/no-did-mount-set-state": [2],
+    "react/no-did-update-set-state": [2],
+    "react/no-direct-mutation-state": [2],
+    "react/no-find-dom-node": [2],
+    "react/no-invalid-html-attribute": [2],
+    "react/no-is-mounted": [2],
+    "react/no-multi-comp": [2],
+    "react/no-namespace": [2],
+    "react/no-redundant-should-component-update": [2],
+    "react/no-render-return-value": [2],
+    "react/no-set-state": [2],
+    "react/no-string-refs": [2, { "noTemplateLiterals": true }],
+    "react/no-this-in-sfc": [2],
+    "react/no-typos": [2],
+    "react/no-unescaped-entities": [2],
+    "react/no-unknown-property": [2, { "ignore": [] }],
+    "react/no-unsafe": [2, { "checkAliases": true }],
+    "react/no-unstable-nested-components": [2, { "allowAsProps": true }],
+    "react/no-unused-class-component-methods": [2],
+    "react/no-unused-prop-types": [2],
+    "react/no-unused-state": [2],
+    "react/no-will-update-set-state": [2],
+    "react/prefer-es6-class": [0],
+    "react/prefer-exact-props": [2],
+    "react/prefer-read-only-props": [2],
+    "react/prefer-stateless-function": [2],
+    "react/prop-types": [2, { "ignore": [] }],
+    "react/react-in-jsx-scope": [0],
+    "react/jsx-uses-react": [0],
+    "react/require-default-props": [1],
+    "react/require-optimization": [1, { "allowDecorators": [] }],
+    "react/require-render-return": [2],
+    "react/self-closing-comp": [
+      2,
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
+    "react/sort-comp": [
+      2,
+      {
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "/^on.+$/",
+          "everything-else",
+          "rendering"
+        ],
+        "groups": { "rendering": ["/^render.+$/", "render"] }
+      }
+    ],
+    "react/sort-prop-types": [
+      2,
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "requiredFirst": true,
+        "sortShapeProp": false,
+        "noSortAlphabetically": false
+      }
+    ],
+    "react/state-in-constructor": [2, "never"],
+    "react/style-prop-object": [2],
+    "react/void-dom-elements-no-children": [2],
+    // JSX-specific rules
+    "react/jsx-boolean-value": [2, "never"],
+    "react/jsx-child-element-spacing": [2],
+    "react/jsx-closing-bracket-location": [1, "tag-aligned"],
+    "react/jsx-closing-tag-location": [2],
+    "react/jsx-curly-brace-presence": [0],
+    "react/jsx-curly-newline": [2, { "multiline": "consistent", "singleline": "consistent" }],
+    "react/jsx-equals-spacing": [2, "never"],
+    "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
+    "react/jsx-first-prop-new-line": [2, "multiline"],
+    "react/jsx-handler-names": [
+      2,
+      {
+        "checkLocalVariables": true,
+        "checkInlineFunction": true
+      }
+    ],
+    "react/jsx-indent": [
+      0,
+      "tab",
+      {
+        "checkAttributes": true
+      }
+    ],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-key": [
+      2,
+      {
+        "checkFragmentShorthand": true,
+        "checkKeyMustBeforeSpread": true
+      }
+    ],
+    "react/jsx-max-depth": [2, { "max": 10 }],
+    "react/jsx-max-props-per-line": [2, { "maximum": 1, "when": "multiline" }],
+    "react/jsx-newline": [2, { "prevent": true }],
+    "react/jsx-no-bind": [2],
+    "react/jsx-no-comment-textnodes": [2],
+    "react/jsx-no-constructed-context-values": [2],
+    "react/jsx-no-duplicate-props": [2, { "ignoreCase": true }],
+    "react/jsx-no-literals": [
+      2,
+      {
+        "noStrings": true,
+        "allowedStrings": ["reset", "submit", "button"],
+        "ignoreProps": true,
+        "noAttributeStrings": true
+      }
+    ],
+    "react/jsx-no-script-url": [2],
+    "react/jsx-no-target-blank": [
+      2,
+      {
+        "allowReferrer": false,
+        "links": true,
+        "forms": true
+      }
+    ],
+    "react/jsx-no-undef": [2, { "allowGlobals": false }],
+    "react/jsx-no-useless-fragment": [2, { "allowExpressions": true }],
+    "react/jsx-one-expression-per-line": [1, { "allow": "single-child" }],
+    "react/jsx-pascal-case": [
+      2,
+      {
+        "allowAllCaps": false,
+        "allowNamespace": true,
+        "allowLeadingUnderscore": false
+      }
+    ],
+    "react/jsx-props-no-multi-spaces": [2],
+    "react/jsx-sort-default-props": [
+      2,
+      {
+        "ignoreCase": true
+      }
+    ],
+    "react/jsx-sort-props": [
+      2,
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "never"
+      }
+    ],
+    "react/jsx-uses-vars": [2],
+    "react/jsx-wrap-multilines": [
+      2,
+      {
+        "declaration": "parens",
+        "assignment": "parens",
+        "return": "parens",
+        "arrow": "parens",
+        "condition": "ignore",
+        "logical": "ignore",
+        "prop": "ignore"
+      }
+    ],
+    // React Hooks Plugin
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    // Import
+    "import/no-unresolved": [
+      2,
+      {
+        "commonjs": true,
+        "amd": true
+      }
+    ],
+    "import/named": 2,
+    "import/default": 2,
+    "import/namespace": 2,
+    "import/no-absolute-path": 2,
+    "import/no-webpack-loader-syntax": 2,
+    "import/no-self-import": 2,
+    "import/no-useless-path-segments": [
+      2,
+      {
+        "noUselessIndex": true
+      }
+    ],
+    "import/export": 0,
+    "import/no-named-as-default-member": 2,
+    "import/no-deprecated": 2,
+    "import/no-mutable-exports": 2,
+    "import/no-named-as-default": 2,
+    "import/no-nodejs-modules": 2,
+    "import/first": 2,
+    "import/exports-last": 2,
+    "import/no-duplicates": [2, { "considerQueryString": true }],
+    "import/no-namespace": 2,
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "groups": ["builtin", "external", "internal", "parent", ["sibling", "index"]],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true
+      }
+    ],
+    "import/prefer-default-export": 2,
+    "import/max-dependencies": [
+      2,
+      {
+        "max": 15,
+        "ignoreTypeImports": false
+      }
+    ],
+    "import/newline-after-import": 2,
+    "import/no-unassigned-import": [2, { "allow": ["**/*.css"] }],
+    "import/no-named-default": 2,
+    "import/no-anonymous-default-export": [
+      2,
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowCallExpression": true, // The true value here is for backward compatibility
+        "allowLiteral": false,
+        "allowObject": false
+      }
+    ],
+    "import/group-exports": 2,
+    "import/dynamic-import-chunkname": [
+      2,
+      {
+        "importFunctions": ["dynamicImport"],
+        "webpackChunknameFormat": "[0-9a-zA-Z-_/.]+"
+      }
+    ],
+    "import/no-cycle": 0,
+    // Filenames
+    "filenames/match-regex": 0,
+    "filenames/match-exported": [2, "pascal"],
+    "filenames/no-index": 0,
+    // Deprecate
+    "deprecate/function": [2],
+    "deprecate/member-expression": [2],
+    "deprecate/import": [2],
+    // JSON
+    "json/*": [2, { "allowComments": true }],
+    // No loops
+    "no-loops/no-loops": 2,
+    // Unicorn
+    "unicorn/prefer-string-replace-all": 2,
+    "unicorn/filename-case": [
+      2,
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        },
+        "ignore": ["react-app-env.d.ts"]
+      }
+    ],
+    "unicorn/numeric-separators-style": 0,
+    "unicorn/prefer-module": 0,
+    "unicorn/prevent-abbreviations": [
+      2,
+      {
+        "replacements": {
+          "e": {
+            "event": false
+          },
+          "res": false,
+          "cmd": {
+            "command": true
+          },
+          "errCb": {
+            "handleError": true
+          }
+        },
+        "checkFilenames": false
+      }
+    ],
+    // JSX-A11Y
+    "jsx-a11y/media-has-caption": [
+      2,
+      {
+        "audio": ["Audio"],
+        "video": ["Video"],
+        "track": ["Track"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["vite-env.d.ts"],
+      "rules": {
+        "unicorn/filename-case": 0
+      }
+    }
+  ]
+}
