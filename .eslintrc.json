@@ -433,6 +433,7 @@
         "checkFilenames": false
       }
     ],
+    "unicorn/no-null": 0,
     // JSX-A11Y
     "jsx-a11y/media-has-caption": [
       2,
@@ -457,13 +458,13 @@
       }
     },
     {
-      "files": ["reportWebVitals.ts"],
+      "files": ["reportWebVitals.ts", "*.cache.ts"],
       "rules": {
         "filenames/match-exported": 0
       }
     },
     {
-      "files": ["*.util.ts"],
+      "files": ["*.util.ts", "index.ts", "*.constant.ts", "*.palette.ts", "*.theme.ts"],
       "rules": {
         "import/prefer-default-export": 0
       }
@@ -484,6 +485,12 @@
       "files": ["vite.config.ts"],
       "rules": {
         "import/no-anonymous-default-export": 0
+      }
+    },
+    {
+      "files": ["theme.constant.ts"],
+      "rules": {
+        "quotes": 0
       }
     }
   ]

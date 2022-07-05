@@ -1,6 +1,11 @@
 /* eslint-disable import/dynamic-import-chunkname */
 import type { ReportHandler } from 'web-vitals';
 
+/**
+ * Print Web Vitals metrics for the app.
+ *
+ * @param {ReportHandler} onPerfEntry
+ */
 const reportWebVitals = (onPerfEntry: ReportHandler) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals')
