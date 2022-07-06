@@ -30,7 +30,10 @@
     "no-loops",
     "unicorn",
     "markdown",
-    "promise"
+    "promise",
+    "jest-dom",
+    "testing-library",
+    "jest"
   ],
   "extends": [
     "eslint:recommended",
@@ -44,7 +47,11 @@
     "plugin:json/recommended",
     "plugin:unicorn/recommended",
     "plugin:markdown/recommended",
-    "plugin:promise/recommended"
+    "plugin:promise/recommended",
+    "plugin:storybook/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest/recommended"
   ],
   "settings": {
     "react": {
@@ -434,6 +441,7 @@
       }
     ],
     "unicorn/no-null": 0,
+    "unicorn/no-useless-undefined": [2, { "checkArguments": false }],
     // JSX-A11Y
     "jsx-a11y/media-has-caption": [
       2,
@@ -442,7 +450,9 @@
         "video": ["Video"],
         "track": ["Track"]
       }
-    ]
+    ],
+    // JEST
+    "jest/no-large-snapshots": [1, { "maxSize": 12, "inlineMaxSize": 6 }]
   },
   "overrides": [
     {
@@ -488,9 +498,15 @@
       }
     },
     {
-      "files": ["theme.constant.ts"],
+      "files": ["theme.**.ts"],
       "rules": {
         "quotes": 0
+      }
+    },
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "react/function-component-definition": 0
       }
     }
   ]

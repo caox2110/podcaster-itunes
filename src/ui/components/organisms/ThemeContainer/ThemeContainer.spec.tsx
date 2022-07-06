@@ -1,16 +1,12 @@
-import { render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import type { RenderResult } from '@testing-library/react';
 
-import { ThemeContainer } from '../..';
-
-import Page from '.';
+import ThemeContainer from '.';
 
 function renderApp(): RenderResult {
   const utils = render(
     <ThemeContainer>
-      <Page title='Main Page'>
-        <h1>Testing text</h1>
-      </Page>
+      <h1>Testing text</h1>
     </ThemeContainer>,
   );
   return {
@@ -24,9 +20,5 @@ describe('Page template rendering', () => {
 
     expect(baseElement).toBeTruthy();
     expect(container).toMatchSnapshot();
-  });
-  it('Should load a title after the page rendering', async () => {
-    renderApp();
-    await waitFor(() => expect(document.title).toEqual('Main Page | Podcaster'));
   });
 });

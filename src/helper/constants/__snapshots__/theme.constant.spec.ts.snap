@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Theme constant vars Should be a defined constant vars for the theme 1`] = `
+Object {
+  "FONT_PRIMARY": Any<String>,
+  "MODE": Object {
+    "DARK": StringMatching /dark/,
+    "LIGHT": StringMatching /light/,
+  },
+}
+`;

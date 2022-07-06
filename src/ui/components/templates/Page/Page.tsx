@@ -4,9 +4,30 @@ import { Helmet } from 'react-helmet-async';
 import { constants } from '../../../../helper';
 import { MuiBox } from '../..';
 
+/**
+ * Page component props definition
+ *
+ * @interface PageProperties
+ * @typedef {PageProperties}
+ */
 interface PageProperties {
+  /**
+   * Component to render
+   *
+   * @type {ReactNode}
+   */
   children: ReactNode;
+  /**
+   * Title for page
+   *
+   * @type {string}
+   */
   title: string;
+  /**
+   * Any others meta tag to add
+   *
+   * @type {?ReactNode}
+   */
   meta?: ReactNode;
 }
 
@@ -40,4 +61,5 @@ function Page(
   );
 }
 
+// export type { PageProperties };
 export default forwardRef(Page);
