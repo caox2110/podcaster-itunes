@@ -6,5 +6,8 @@ export default ({ mode }: { mode: string }) => {
   return defineConfig({
     plugins: [react()],
     define: { 'process.env': { ...loadEnv(mode, process.cwd()) } },
+    build: {
+      outDir: './dist/app',
+    },
   });
 };

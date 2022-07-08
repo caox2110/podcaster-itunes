@@ -1,27 +1,29 @@
 {
   "name": "podcaster-itunes",
+  "title": "podcaster-itunes",
   "description": "ZARA.com front-end test. The application consists of creating a mini-application to listen to podcasts.",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Frank González Hernández",
+  "keywords": [],
+  "homepage": "http://podcaster.test/",
   "engines": {
-    "node": "^16.10.0",
+    "node": "14 || 16 || 18",
     "npm": "^7.24.0"
   },
   "scripts": {
+    "dev": "vite --mode dev",
     "build": "tsc && vite build",
     "preview": "npm run build && vite preview",
-    "dev": "vite --mode dev",
     "prod": "vite --mode prod",
-    "staging": "vite --mode staging",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --cache --fix",
     "test": "jest",
     "test:no-cache": "jest --no-cache",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "design-system:start": "start-storybook -p 6006",
+    "design-system:build": "build-storybook -s public -o ./dist/design-system"
   },
   "dependencies": {
     "@emotion/cache": "^11.9.3",
