@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App constant vars Should be a constant and get the vars from environment 1`] = `
+Object {
+  "APP_NAME": Any<String>,
+  "IS_DEV": false,
+  "IS_PROD": false,
+  "MODE": StringMatching /test\\|dev\\|prod/,
+}
+`;

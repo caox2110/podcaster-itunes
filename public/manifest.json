@@ -1,0 +1,9 @@
+{
+  "short_name": "Podcaster",
+  "name": "Podcaster-Itunes App",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "ZARA.com front-end test. The application consists of creating a mini-application to listen to podcasts."
+}
