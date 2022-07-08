@@ -5,12 +5,12 @@ import { constants } from '../../../../helper';
 import { MuiBox } from '../..';
 
 /**
- * Page component props definition
+ * Component props definition
  *
- * @interface PageProperties
+ * @type PageProperties
  * @typedef {PageProperties}
  */
-interface PageProperties {
+type PageProperties = {
   /**
    * Component to render
    *
@@ -29,7 +29,16 @@ interface PageProperties {
    * @type {?ReactNode}
    */
   meta?: ReactNode;
-}
+};
+
+/**
+ * Default props values
+ *
+ * @type {{ meta: any; }}
+ */
+const defaultProps = {
+  meta: null,
+};
 
 const {
   app: { APP_NAME },
@@ -42,7 +51,7 @@ const {
  * @param {Ref<unknown>} reference
  * @returns {*}
  */
-function Page(
+function PageWithForwardReference(
   { children, title = '', meta = null, ...rest }: PageProperties,
   reference: Ref<unknown>,
 ) {
@@ -61,5 +70,16 @@ function Page(
   );
 }
 
-// export type { PageProperties };
-export default forwardRef(Page);
+/**
+ * Component Page with forwardRef
+ *
+ * @type {*}
+ */
+const Page = forwardRef(PageWithForwardReference);
+
+/**
+ * Set the default props to the component
+ */
+Page.defaultProps = defaultProps;
+
+export default Page;
