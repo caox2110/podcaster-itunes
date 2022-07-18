@@ -1,3 +1,4 @@
+import React from 'react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ThemeContainer } from '../src/ui';
 

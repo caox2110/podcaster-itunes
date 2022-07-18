@@ -1,4 +1,5 @@
-import { pxToRem, responsiveFontSizes, constants } from '../../helper';
+import { constants } from '@/core/constants';
+import { pxToRem, responsiveFontSizes } from '@/core/utils';
 
 const {
   theme: { FONT_PRIMARY },

@@ -1,9 +1,10 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import type { PaletteMode, ThemeOptions } from '@mui/material';
 
-import { constants } from '../../helper';
+import { constants } from '@/core/constants';
 
 import { typography } from './typography.palette';
+import { ComponentsOverrides } from './overrides';
 
 const {
   theme: {
@@ -18,6 +19,10 @@ const getDesignOptions = (): ThemeOptions => ({
   typography,
 });
 
-const theme = () => responsiveFontSizes(createTheme(getDesignOptions()));
+const theme = () => {
+  const themeInstance = responsiveFontSizes(createTheme(getDesignOptions()));
+  themeInstance.components = ComponentsOverrides(themeInstance);
+  return themeInstance;
+};
 
 export { theme };

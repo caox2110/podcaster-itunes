@@ -1,7 +1,8 @@
 import { forwardRef, Ref, ReactNode, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import { constants } from '../../../../helper';
+import { constants } from '@/core/constants';
+
 import { MuiBox } from '../..';
 
 /**

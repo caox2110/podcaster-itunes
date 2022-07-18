@@ -18,8 +18,9 @@
     "types": ["node", "vite/client", "jest", "@testing-library/jest-dom"],
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src"],
+  "include": ["./src", "modules.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

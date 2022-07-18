@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
   "globals": {
     "Atomics": "readonly",
@@ -81,10 +82,18 @@
     ],
     "import/resolver": {
       "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "./src"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+      },
+      "alias": {
+        "map": [["@", "./src"]],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     },
-    "import/extensions": [".ts", "tsx"],
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/ignore": [".*\\.d.ts$"]
   },
   "rules": {
@@ -93,14 +102,7 @@
     "no-console": [2, { "allow": ["warn", "error"] }],
     "no-debugger": 1,
     "no-alert": 2,
-    "no-unused-vars": [
-      2,
-      {
-        "vars": "all",
-        "args": "after-used",
-        "ignoreRestSiblings": false
-      }
-    ],
+    "no-unused-vars": [0],
     "@typescript-eslint/no-unused-vars": [2],
     "no-empty-function": 0,
     "@typescript-eslint/no-empty-function": [2, { "allow": ["arrowFunctions"] }],
@@ -365,13 +367,6 @@
       }
     ],
     "import/prefer-default-export": 2,
-    "import/max-dependencies": [
-      2,
-      {
-        "max": 15,
-        "ignoreTypeImports": false
-      }
-    ],
     "import/newline-after-import": 2,
     "import/no-unassigned-import": [2, { "allow": ["**/*.css"] }],
     "import/no-named-default": 2,
@@ -468,13 +463,44 @@
       }
     },
     {
-      "files": ["reportWebVitals.ts", "*.cache.ts"],
+      "files": [
+        "reportWebVitals.ts",
+        "*.cache.ts",
+        "*.service.ts",
+        "*.hook.ts",
+        "*.controller.ts",
+        "*.factory.*",
+        "*.useCase.ts",
+        "*.page.tsx",
+        "*.override.ts",
+        "*.reducer.ts",
+        "*.hoc.tsx"
+      ],
       "rules": {
         "filenames/match-exported": 0
       }
     },
     {
-      "files": ["*.util.ts", "index.ts", "*.constant.ts", "*.palette.ts", "*.theme.ts"],
+      "files": [
+        "*.util.ts",
+        "index.ts",
+        "*.constant.ts",
+        "*.palette.ts",
+        "*.theme.ts",
+        "*.client.ts",
+        "*.enum.ts",
+        "*.boundary.ts",
+        "*.repository.ts",
+        "*.service.ts",
+        "*.useCase.ts",
+        "*.mapper.ts",
+        "*.locator.ts",
+        "*.factory.*",
+        "*.actions.*",
+        "*.context.*",
+        "*.type.*",
+        "*.state.*"
+      ],
       "rules": {
         "import/prefer-default-export": 0
       }
@@ -507,6 +533,18 @@
       "files": ["*.stories.tsx"],
       "rules": {
         "react/function-component-definition": 0
+      }
+    },
+    {
+      "files": ["*.enum.ts", "*.type.ts"],
+      "rules": {
+        "no-unused-vars": 0
+      }
+    },
+    {
+      "files": ["*.override.ts"],
+      "rules": {
+        "unicorn/prevent-abbreviations": 0
       }
     }
   ]

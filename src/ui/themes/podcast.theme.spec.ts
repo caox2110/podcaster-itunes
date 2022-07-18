@@ -1,6 +1,6 @@
 import type { Theme } from '@mui/material';
 
-import { constants } from '../../helper';
+import { constants } from '@/core/constants';
 
 import { theme } from './podcast.theme';
 
