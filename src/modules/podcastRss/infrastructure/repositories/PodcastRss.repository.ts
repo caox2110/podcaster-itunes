@@ -1,7 +1,7 @@
 import { HttpClient, HttpStatusCode } from '@/core/clients';
 
 import { PodcastRssMapper, RssEntity, Entry } from '..';
-import { PodcastRssBoundary, PodcastRss } from '../../domain';
+import { PodcastRssBoundary, PodcastRss, errorMessages } from '../../domain';
 
 export class PodcastRssRepository implements PodcastRssBoundary {
   private readonly url: string;
@@ -15,21 +15,32 @@ export class PodcastRssRepository implements PodcastRssBoundary {
   }
 
   async getAll(): Promise<PodcastRss[]> {
-    let apiResponse;
-    try {
-      apiResponse = await this.httpClient.get(this.url);
-      if (!apiResponse.body)
-        throw new Error('Error fetching podcast-rss. Message: No data getted.');
-      switch (apiResponse.status) {
-        case HttpStatusCode.ok:
-          return apiResponse.body.feed.entry.map((entry: Entry) => this.mapper.mapEntity(entry));
-        case HttpStatusCode.noContent:
-          return [];
-        default:
-          throw new Error('Error fetching podcast-rss. Message: State no manage.');
-      }
-    } catch (error: unknown) {
-      throw new Error(`Error fetching podcast-rss. Message: ${JSON.stringify(error)}`);
+    const response = await this.httpClient.get(this.url);
+
+    if (!response.body) throw new Error(errorMessages()[403]);
+
+    switch (response.status) {
+      case HttpStatusCode.ok:
+        return response.body.feed.entry.map((entry: Entry) => this.mapper.mapEntity(entry));
+      case HttpStatusCode.noContent:
+        return [];
+      case HttpStatusCode.serverError:
+        throw new Error(errorMessages()[500]);
+      default:
+        throw new Error(errorMessages()[403]);
     }
+  }
+
+  getFiltered(searchTerm: string, podcastRssList: PodcastRss[] = []): PodcastRss[] {
+    if (typeof searchTerm !== 'string' || !searchTerm || searchTerm.length === 0)
+      return podcastRssList ?? [];
+    if (!Array.isArray(podcastRssList)) return [];
+    return (
+      podcastRssList?.filter(
+        (podcastRss: PodcastRss) =>
+          podcastRss.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          podcastRss.author.toLowerCase().includes(searchTerm.toLowerCase()),
+      ) ?? []
+    );
   }
 }

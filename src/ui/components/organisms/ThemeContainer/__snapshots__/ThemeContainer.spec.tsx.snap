@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Page template rendering Should render without throwing any errors 1`] = `
+exports[`ThemeContainer Rendering Should render without throwing any errors 1`] = `
 <div>
   <h1>
     Testing text

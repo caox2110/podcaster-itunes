@@ -1,1 +1,1 @@
-export { AppBar as default } from '@mui/material';
+export { default } from './MuiAppBar';

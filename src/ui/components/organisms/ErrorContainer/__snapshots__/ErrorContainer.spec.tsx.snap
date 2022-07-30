@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorContainer Rendering Should render without throwing any errors 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+  >
+    <div
+      class="css-1rhfahi"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-h3 MuiTypography-paragraph css-1rp5ucn-MuiTypography-root"
+      >
+        Sorry, there was an error:
+      </p>
+      <pre
+        style="white-space: normal;"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-7lj4m2-MuiTypography-root"
+        >
+          App Error
+        </p>
+      </pre>
+      <img
+        alt="app error image"
+        class="MuiBox-root css-zkplgh"
+        src="/static/illustrations/undraw_server_down_s-4-lk.svg"
+      />
+    </div>
+  </div>
+</div>
+`;

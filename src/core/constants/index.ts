@@ -1,6 +1,7 @@
 import { appConstant } from './app.constant';
 import { themeConstant } from './theme.constant';
 import { urlConstant } from './url.constant';
+import { queryClientConstant } from './queryClient.constant';
 
 /**
  * Constants for the app
@@ -11,6 +12,7 @@ const constants = {
   app: appConstant,
   theme: themeConstant,
   url: urlConstant,
+  queryClient: queryClientConstant,
 };
 
 if (appConstant.IS_DEV) {

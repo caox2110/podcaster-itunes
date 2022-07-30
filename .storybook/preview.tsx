@@ -1,11 +1,27 @@
-import React from 'react';
+import type { DecoratorFn, Story } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { ThemeContainer } from '../src/ui';
+import { withRouter } from 'storybook-addon-react-router-v6';
+import { withPerformance } from 'storybook-addon-performance';
+import { ThemeContainer, VerticalCentered } from '../src/ui';
 
-export const decorators = [(Story) => <ThemeContainer>{Story()}</ThemeContainer>];
+export const withVerticalCentered: DecoratorFn = (Story: Story) => (
+  <VerticalCentered>
+    <Story />
+  </VerticalCentered>
+);
+
+export const decorators = [
+  (Story: Story) => (
+    <ThemeContainer>
+      <Story />
+    </ThemeContainer>
+  ),
+  withRouter,
+  withPerformance,
+];
 
 export const parameters = {
-  layout: 'centered',
+  layout: 'fullscreen',
   backgrounds: {
     default: 'senary',
     values: [
@@ -48,6 +64,7 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true,
+    sort: 'requiredFirst',
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,

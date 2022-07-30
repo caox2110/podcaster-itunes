@@ -1,1 +1,1 @@
-export { Card as default } from '@mui/material';
+export { default } from '@mui/material/Card';

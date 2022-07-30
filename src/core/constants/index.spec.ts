@@ -2,6 +2,7 @@ import { constants as AllAppConstants } from '.';
 import { appConstant } from './app.constant';
 import { themeConstant } from './theme.constant';
 import { urlConstant } from './url.constant';
+import { queryClientConstant } from './queryClient.constant';
 
 const logSpy = jest.spyOn(console, 'warn');
 
@@ -23,6 +24,7 @@ describe('All app constant vars', () => {
       app: appConstant,
       theme: themeConstant,
       url: urlConstant,
+      queryClient: queryClientConstant,
     };
 
     expect(AllAppConstants).toStrictEqual(constants);

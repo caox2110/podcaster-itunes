@@ -1,4 +1,4 @@
-import type { Theme } from '@mui/material';
+import type { Theme } from '@mui/material/styles';
 
 import CssBaseline from './CssBaseline.override';
 import AppBar from './AppBar.override';

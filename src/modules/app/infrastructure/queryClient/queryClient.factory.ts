@@ -1,12 +1,22 @@
-import { QueryClient } from 'react-query';
+import { QueryClient } from 'react-query/core';
+
+import { constants } from '@/core/constants';
+
+const {
+  queryClient: {
+    reactQuery: {
+      queries: { cacheTime, staleTime },
+    },
+  },
+} = constants;
 
 const QueryClientFactory = {
   makeQueryClient: (): QueryClient =>
     new QueryClient({
       defaultOptions: {
         queries: {
-          cacheTime: 1000 * 60 * 60 * 24, // 24 hours,
-          staleTime: 1000 * 60 * 60 * 24, // 24 hours,
+          cacheTime, // 24 hours,
+          staleTime, // 24 hours,
           refetchOnWindowFocus: false,
         },
       },

@@ -1,1 +1,1 @@
-export { Toolbar as default } from '@mui/material';
+export { default } from '@mui/material/Toolbar';

@@ -1,1 +1,1 @@
-export { CardHeader as default } from '@mui/material';
+export { default } from '@mui/material/CardHeader';

@@ -1,1 +1,1 @@
-export { Typography as default } from '@mui/material';
+export { default } from '@mui/material/Typography';

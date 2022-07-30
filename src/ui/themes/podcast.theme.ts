@@ -1,5 +1,6 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
-import type { PaletteMode, ThemeOptions } from '@mui/material';
+import type { ThemeOptions } from '@mui/material/styles';
+import type { PaletteMode } from '@mui/material';
 
 import { constants } from '@/core/constants';
 

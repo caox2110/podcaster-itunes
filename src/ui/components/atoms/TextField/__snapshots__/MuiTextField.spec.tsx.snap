@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MuiTextField Rendering Should render without throwing any errors 1`] = `
+<div>
+  <div
+    aria-autocomplete="none"
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-12rpily-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="false"
+      for="filter-podcast"
+      id="filter-podcast-label"
+    >
+      Search
+    </label>
+    <div
+      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-uds2cb-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        data-testid="filter-podcast"
+        id="filter-podcast"
+        name="filter-podcast"
+        placeholder="Filter podcasts"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-1ftyaf0"
+        >
+          <span>
+            Search
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;

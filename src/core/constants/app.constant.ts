@@ -8,4 +8,5 @@ export const appConstant = {
   IS_DEV: (import.meta.env.DEV && import.meta.env.MODE === 'dev') || false,
   IS_PROD: import.meta.env.PROD || false,
   MODE: import.meta.env.MODE || '',
+  DEFAULT_IMAGE: '/static/icons/undraw_images_re_0kll.svg',
 };

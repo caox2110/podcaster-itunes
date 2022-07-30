@@ -1,4 +1,4 @@
-import { MuiBox, MuiChip, MuiFormControl, TextField } from '@/ui';
+import { MuiBox, MuiChip, MuiFormControl, MuiTextField } from '@/ui';
 
 import { usePodcastRss } from '../../../infrastructure';
 
@@ -33,11 +33,11 @@ export default function SearchPodcastRss() {
         }}
       />
       <MuiFormControl sx={{ width: '60ch' }}>
-        <TextField
+        <MuiTextField
           id='filter-podcast'
-          label=''
           name='filter-podcast'
           placeholder='Filter podcasts'
+          type='search'
           {...searchInputProperties}
         />
       </MuiFormControl>

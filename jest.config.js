@@ -1,6 +1,6 @@
 module.exports = {
   globals: {
-    'babel-jest': {
+    'ts-jest': {
       babelConfig: true,
     },
   },
@@ -9,18 +9,18 @@ module.exports = {
   roots: ['<rootDir>/src'],
 
   // Jest transformations -- this adds support for TypeScript
-  // using ts-jest
+  // using babel-jest and ts-jest
   transform: {
     '.*': 'babel-jest',
-    '^.+\\.js?$': 'babel-jest',
-    '^.+\\.ts?$': 'babel-jest',
-    '^.+\\.tsx?$': 'babel-jest',
+    '^.+\\.ts?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
   transformIgnorePatterns: [
     'src/node_modules/(?!@mui)',
-    '[/\\\\](node_modules|deploy)[/\\\\].+\\.(js|jsx)$',
+    '[/\\\\](node_modules|deploy)[/\\\\].+\\.(js|jsx|json)$',
   ],
-  testPathIgnorePatterns: ['./node_modules/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '.*/test($|/.*)'],
   // Test spec file resolution pattern
   // Matches parent folder `__tests__` and filename
   // should contain `test` or `spec`.
@@ -33,6 +33,10 @@ module.exports = {
     '^.+\\.(css|less|scss)$': 'babel-jest',
   },
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](build|docs|node_modules|deploy|scripts)[/\\\\]'],
+  moduleDirectories: ['<rootDir>', 'node_modules/', './src'],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+  coveragePathIgnorePatterns: ['^.*\\.stories\\.[jt]sx?$', '.*/test($|/.*)'],
+  // verbose: true,
+  resetMocks: true,
 };

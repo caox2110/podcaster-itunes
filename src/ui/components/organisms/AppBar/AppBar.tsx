@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { MuiAppBar, MuiToolbar, MuiTypography, MuiButton, MuiCircularProgress } from '../..';
+import { MuiAppBar, MuiToolbar, MuiTypography, MuiButton, Loading, LoadingTypeEnum } from '../..';
 
 type AppBarProperties = {
   appName: string;
   handleClickEventHomeButton: () => void;
 };
 
-export default function AppBar({ appName, handleClickEventHomeButton, ...rest }: AppBarProperties) {
+export default function AppBar({
+  appName = 'Podcaster',
+  handleClickEventHomeButton,
+  ...rest
+}: AppBarProperties) {
   const location = useLocation();
   const [loadingRoute, setLoadingRoute] = useState(false);
 
@@ -27,7 +31,7 @@ export default function AppBar({ appName, handleClickEventHomeButton, ...rest }:
             {appName}
           </MuiTypography>
         </MuiButton>
-        {loadingRoute && <MuiCircularProgress data-testid='loadingAppBar' />}
+        {loadingRoute && <Loading data-testid='loadingAppBar' type={LoadingTypeEnum.circular} />}
       </MuiToolbar>
     </MuiAppBar>
   );

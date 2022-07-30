@@ -1,1 +1,2 @@
-export * from './GetAllFilteredPodcastRss.useCase';
+export * from './GetAllPodcastRss.useCase';
+export * from './GetFilteredPodcastRss.useCase';

@@ -4,9 +4,18 @@ exports[`All app constant vars Should be getted all the vars for the app 1`] = `
 Object {
   "app": Object {
     "APP_NAME": "Podcaster",
+    "DEFAULT_IMAGE": "/static/icons/undraw_images_re_0kll.svg",
     "IS_DEV": false,
     "IS_PROD": false,
     "MODE": "test",
+  },
+  "queryClient": Object {
+    "reactQuery": Object {
+      "queries": Object {
+        "cacheTime": 86400000,
+        "staleTime": 86400000,
+      },
+    },
   },
   "theme": Object {
     "EMOTION_CACHE_KEY": "podcast-css",

@@ -13,7 +13,7 @@ export default function ListPodcastRss(): JSX.Element {
         <MuiGrid item key={podcast.id} md={3} sm={6} xs={12}>
           <CardPodcastRss
             actionRoute={`/podcast/${podcast.id}`}
-            author={podcast.author.label}
+            author={podcast.author}
             image={podcast.image}
             title={podcast.title}
           />

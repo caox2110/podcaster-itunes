@@ -1,3 +1,7 @@
+const path = require('path');
+
+const { loadConfigFromFile, mergeConfig } = require('vite');
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -10,6 +14,7 @@ module.exports = {
     '@storybook/addon-storysource',
     'storybook-addon-pseudo-states',
     'storybook-addon-performance',
+    'storybook-addon-react-router-v6',
   ],
   framework: '@storybook/react',
   core: {
@@ -28,7 +33,18 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) =>
+        prop.parent
+          ? /@mui/.test(prop.parent.fileName) || !/node_modules/.test(prop.parent.fileName)
+          : true,
     },
+  },
+  async viteFinal(config) {
+    // return the customized config
+    return mergeConfig(config, {
+      resolve: {
+        alias: { '@': path.resolve(__dirname, '../src') },
+      },
+    });
   },
 };

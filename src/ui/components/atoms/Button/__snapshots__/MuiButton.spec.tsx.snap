@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MuiButton Rendering Should render without throwing any errors 1`] = `
+<div>
+  <button
+    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root  css-1no0c5y-MuiButtonBase-root-MuiButton-root"
+    data-testid="home-podcast-button"
+    tabindex="0"
+    type="button"
+  >
+    Podcaster
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;

@@ -1,6 +1,6 @@
 import { ReactNode, Suspense } from 'react';
 
-import { MuiLinearProgress } from '../..';
+import { Loading } from '..';
 
 /**
  * Component props definition
@@ -13,23 +13,23 @@ type SuspenseCustomProperties = {
 };
 
 /**
- * Default props values
- *
- * @type {{ fallback: any; }}
- */
-const defaultProps = {
-  fallback: <MuiLinearProgress />,
-};
-
-/**
  * React suspense component with custom fallback
  *
  * @param {SuspenseCustomProperties} { children, fallback }
  * @returns
  */
 function SuspenseCustom({ children, fallback }: SuspenseCustomProperties) {
-  return <Suspense fallback={fallback}>{children}</Suspense>;
+  return <Suspense fallback={fallback || <Loading />}>{children}</Suspense>;
 }
+
+/**
+ * Default props values
+ *
+ * @type {{ fallback: any; }}
+ */
+const defaultProps = {
+  fallback: null,
+};
 
 /**
  * Set the default props to the component

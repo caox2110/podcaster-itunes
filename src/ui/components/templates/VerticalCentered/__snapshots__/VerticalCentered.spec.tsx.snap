@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerticalCentered Rendering Should render without throwing any errors 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-fulu7r"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-container css-1lrzoir-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-8 MuiGrid-grid-lg-6 css-1cotp1z-MuiGrid-root"
+      >
+        <h1>
+          Testing text
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;

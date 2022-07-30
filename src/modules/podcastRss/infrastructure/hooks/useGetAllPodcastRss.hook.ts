@@ -6,18 +6,15 @@ import { PodcastRss } from '../../domain';
 export default function useGetAllPodcastRss(searchTem = '') {
   return useQuery<PodcastRss[], Error>(
     ['PodCastRssList'],
-    () => {
-      const { getAllFilteredPodCastRss } = providePodcastRssLocator();
-      return getAllFilteredPodCastRss.execute();
+    (): Promise<PodcastRss[]> => {
+      const { getAllPodcastRss } = providePodcastRssLocator();
+      return getAllPodcastRss.execute();
     },
     {
-      select: (podcastRssList) =>
-        podcastRssList?.filter((podcastRss: PodcastRss) =>
-          searchTem.length > 0
-            ? podcastRss.title.toLowerCase().includes(searchTem.toLowerCase()) ||
-              podcastRss.author.toLowerCase().includes(searchTem.toLowerCase())
-            : true,
-        ) ?? [],
+      select: (podcastRssList): PodcastRss[] => {
+        const { getFilteredPodcastRss } = providePodcastRssLocator();
+        return getFilteredPodcastRss.execute(searchTem, podcastRssList);
+      },
     },
   );
 }

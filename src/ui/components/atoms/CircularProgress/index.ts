@@ -1,1 +1,1 @@
-export { CircularProgress as default } from '@mui/material';
+export { default } from './MuiCircularProgress';

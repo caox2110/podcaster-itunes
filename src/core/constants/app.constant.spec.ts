@@ -5,6 +5,7 @@ const constants = {
   IS_DEV: false,
   IS_PROD: false,
   MODE: 'test',
+  DEFAULT_IMAGE: '/static/icons/undraw_images_re_0kll.svg',
 };
 
 describe('App constant vars', () => {
@@ -13,6 +14,7 @@ describe('App constant vars', () => {
     expect(appConstant).toMatchSnapshot({
       APP_NAME: expect.any(String),
       MODE: expect.stringMatching(/test|dev|prod/),
+      DEFAULT_IMAGE: expect.any(String),
     });
   });
 });

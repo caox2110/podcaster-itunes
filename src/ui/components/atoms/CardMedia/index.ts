@@ -1,1 +1,1 @@
-export { CardMedia as default } from '@mui/material';
+export { default } from '@mui/material/CardMedia';

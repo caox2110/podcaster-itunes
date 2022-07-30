@@ -1,24 +1,25 @@
-import { render } from '@testing-library/react';
-import type { RenderResult } from '@testing-library/react';
-
-import ThemeContainer from '.';
+import { render, screen } from '@/core/test';
+import type { RenderResult } from '@/core/test';
 
 function renderApp(): RenderResult {
-  const utils = render(
-    <ThemeContainer>
-      <h1>Testing text</h1>
-    </ThemeContainer>,
-  );
+  const utils = render(<h1>Testing text</h1>);
   return {
     ...utils,
   };
 }
 
-describe('Page template rendering', () => {
-  it('Should render without throwing any errors', () => {
-    const { baseElement, container } = renderApp();
+describe('ThemeContainer', () => {
+  describe('Rendering', () => {
+    it('Should render without throwing any errors', () => {
+      const { baseElement, container } = renderApp();
 
-    expect(baseElement).toBeTruthy();
-    expect(container).toMatchSnapshot();
+      expect(baseElement).toBeTruthy();
+      expect(container).toMatchSnapshot();
+    });
+    it('Should render a children without throwing any errors', () => {
+      renderApp();
+
+      expect(screen.getByText(/testing text/i)).toBeInTheDocument();
+    });
   });
 });

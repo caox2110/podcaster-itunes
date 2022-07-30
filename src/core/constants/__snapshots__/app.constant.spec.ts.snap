@@ -3,6 +3,7 @@
 exports[`App constant vars Should be a constant and get the vars from environment 1`] = `
 Object {
   "APP_NAME": Any<String>,
+  "DEFAULT_IMAGE": Any<String>,
   "IS_DEV": false,
   "IS_PROD": false,
   "MODE": StringMatching /test\\|dev\\|prod/,

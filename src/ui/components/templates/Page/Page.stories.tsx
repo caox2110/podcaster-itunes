@@ -18,8 +18,5 @@ export { PageWithTitle };
 export default {
   title: 'UI/Templates/Page',
   component: Page,
-  parameters: {
-    layout: 'fullscreen',
-  },
   decorators: [withPerformance],
 } as ComponentMeta<typeof Page>;

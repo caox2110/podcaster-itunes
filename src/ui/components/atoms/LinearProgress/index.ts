@@ -1,1 +1,1 @@
-export { LinearProgress as default } from '@mui/material';
+export { default } from './MuiLinearProgress';

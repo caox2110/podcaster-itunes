@@ -3,7 +3,7 @@ import { keyframes } from '@emotion/react';
 import { styled } from '../../../themes';
 
 interface PlaceholderImagesType<T> {
-  readonly ref: T | null;
+  readonly ref: T | null | undefined;
 }
 
 const loadingAnimation = keyframes`

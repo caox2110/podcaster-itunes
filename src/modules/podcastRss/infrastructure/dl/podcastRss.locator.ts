@@ -1,14 +1,19 @@
 import { PodcastRssRepositoryFactory } from '..';
-import { GetAllFilteredPodcastRssUseCase } from '../../application';
+import { GetAllPodcastRssUseCase, GetFilteredPodcastRssUseCase } from '../../application';
 
 type PodcastRssServiceLocator = {
-  getAllFilteredPodCastRss: GetAllFilteredPodcastRssUseCase;
+  getAllPodcastRss: GetAllPodcastRssUseCase;
+  getFilteredPodcastRss: GetFilteredPodcastRssUseCase;
 };
 
 function providePodcastRssLocator(): PodcastRssServiceLocator {
   const podcastRssRepository = PodcastRssRepositoryFactory.makePodcastRssServiceWithFetchClient();
-  const getAllFilteredPodCastRssUseCase = new GetAllFilteredPodcastRssUseCase(podcastRssRepository);
-  return { getAllFilteredPodCastRss: getAllFilteredPodCastRssUseCase };
+  const getAllPodCastRssUseCase = new GetAllPodcastRssUseCase(podcastRssRepository);
+  const getFilteredPodcastRssUseCase = new GetFilteredPodcastRssUseCase(podcastRssRepository);
+  return {
+    getAllPodcastRss: getAllPodCastRssUseCase,
+    getFilteredPodcastRss: getFilteredPodcastRssUseCase,
+  };
 }
 
 export type { PodcastRssServiceLocator };

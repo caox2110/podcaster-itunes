@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardActionAreaWithRoutingPodcast Rendering Should render without throwing any errors 1`] = `
+<div>
+  <a
+    class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+    href="/podcast/1633466636"
+    tabindex="0"
+  >
+    <h1>
+      Card Action
+    </h1>
+    <span
+      class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+    />
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </a>
+</div>
+`;

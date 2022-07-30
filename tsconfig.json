@@ -3,7 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext", "ES6"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -19,8 +19,9 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "paths": { "@/*": ["./src/*"] }
+    "noFallthroughCasesInSwitch": true,
+    "paths": { "@/*": ["./src/*"], "@storybook-config": ["./storybook/*"] }
   },
-  "include": ["./src", "modules.d.ts"],
+  "include": ["./src", "modules.d.ts", "./storybook", "setupTests.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,3 +1,4 @@
+// MUI
 export { default as MuiCssBaseLine } from './CssBaseLine';
 export { default as MuiThemeProvider } from './ThemeProvider';
 export { default as MuiAppBar } from './AppBar';
@@ -16,7 +17,13 @@ export { default as MuiCardMedia } from './CardMedia';
 export { default as MuiCardContent } from './CardContent';
 export { default as MuiChip } from './Chip';
 export { default as MuiFormControl } from './FormControl';
-export { default as TextField } from './TextField';
+export { default as MuiTextField } from './TextField';
+export { default as MuiMenuItem } from './MenuItem';
+export { default as MuiIconButton } from './IconButton';
+export { default as MuiCardActions } from './CardActions';
 
+// ICONS
+export { default as MuiMenuIcon } from './MenuIcon';
+
+// CUSTOM
 export { default as PlaceholderImages } from './PlaceholderImages';
-export { default as CardActionAreaWithRoutingPodcast } from './CardActionAreaWithRoutingPodcast';

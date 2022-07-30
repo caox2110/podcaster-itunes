@@ -1,17 +1,23 @@
-// import { ErrorBoundary } from 'react-error-boundary';
+import { ReactNode } from 'react';
 
-const defaultProperties = { children: Element };
-PageDataContainer.defaultProps = defaultProperties;
-export default function PageDataContainer({
-  isLoading,
-  isError,
-  children,
-}: {
+import { ErrorContainer, Loading, SuspenseCustom } from '../..';
+
+type PageDataContainerType = {
   isLoading: boolean;
   isError: boolean;
-  children?: any;
-}) {
-  if (isLoading) return <span>Loading.....</span>;
-  if (isError) return <span>Loading.....</span>;
-  return children;
+  error: string | undefined;
+  children?: ReactNode;
+};
+
+const defaultProperties = { children: Element };
+
+function PageDataContainer({ isLoading, isError, error, children }: PageDataContainerType) {
+  if (isError) return <ErrorContainer error={error || ''} />;
+
+  return <SuspenseCustom>{isLoading ? <Loading /> : children}</SuspenseCustom>;
 }
+
+PageDataContainer.defaultProps = defaultProperties;
+
+export type { PageDataContainerType };
+export default PageDataContainer;

@@ -23,7 +23,11 @@ function PodcastRss() {
   );
 
   return (
-    <PageDataContainer isError={podcastsRssQuery.isError} isLoading={podcastsRssQuery.isLoading}>
+    <PageDataContainer
+      error={podcastsRssQuery.error?.message}
+      isError={podcastsRssQuery.isError}
+      isLoading={podcastsRssQuery.isLoading}
+    >
       <PodcastRssProvider state={state}>
         <SearchPodcastRss />
         <ListPodcast />

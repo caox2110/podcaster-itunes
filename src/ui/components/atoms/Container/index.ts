@@ -1,1 +1,1 @@
-export { Container as default } from '@mui/material';
+export { default } from '@mui/material/Container';

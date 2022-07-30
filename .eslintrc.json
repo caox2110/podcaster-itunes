@@ -34,7 +34,8 @@
     "promise",
     "jest-dom",
     "testing-library",
-    "jest"
+    "jest",
+    "tss-unused-classes"
   ],
   "extends": [
     "eslint:recommended",
@@ -342,7 +343,7 @@
     "import/no-deprecated": 2,
     "import/no-mutable-exports": 2,
     "import/no-named-as-default": 2,
-    "import/no-nodejs-modules": 2,
+    "import/no-nodejs-modules": [2, { "allow": ["path"] }],
     "import/first": 2,
     "import/exports-last": 2,
     "import/no-duplicates": [2, { "considerQueryString": true }],
@@ -447,7 +448,9 @@
       }
     ],
     // JEST
-    "jest/no-large-snapshots": [1, { "maxSize": 12, "inlineMaxSize": 6 }]
+    "jest/no-large-snapshots": [1, { "maxSize": 12, "inlineMaxSize": 6 }],
+    // TSS
+    "tss-unused-classes/unused-classes": 2
   },
   "overrides": [
     {
@@ -474,7 +477,8 @@
         "*.page.tsx",
         "*.override.ts",
         "*.reducer.ts",
-        "*.hoc.tsx"
+        "*.hoc.tsx",
+        "*.handler.ts"
       ],
       "rules": {
         "filenames/match-exported": 0
@@ -499,7 +503,12 @@
         "*.actions.*",
         "*.context.*",
         "*.type.*",
-        "*.state.*"
+        "*.state.*",
+        "*.model.*",
+        "*.handler.*",
+        "*.message.*",
+        "*.mock.*",
+        "*.stub.*"
       ],
       "rules": {
         "import/prefer-default-export": 0
@@ -545,6 +554,12 @@
       "files": ["*.override.ts"],
       "rules": {
         "unicorn/prevent-abbreviations": 0
+      }
+    },
+    {
+      "files": ["*.handler.ts"],
+      "rules": {
+        "unicorn/no-static-only-class": 0
       }
     }
   ]
